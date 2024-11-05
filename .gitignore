@@ -1,3 +1,7 @@
+# Ignore parent directory references
+..**
+..
+
 # Firebase
 /.firebase/
 .firebase/
