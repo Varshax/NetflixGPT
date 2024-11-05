@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Browse = () => {
-  return (
-    <div>Browse</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Browse
+  return <></>;
+};
+
+export default Browse;
