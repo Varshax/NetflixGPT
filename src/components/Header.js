@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full z-50 transition-all duration-300 mb-8">
+    <header className="fixed w-full z-50 transition-all duration-300 mb-8 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
@@ -29,46 +29,43 @@ const Header = () => {
             className="shrink-0 transform hover:scale-105 transition-transform duration-300"
           >
             <img
-              className="w-24 object-contain mt-8"
-              src="/BBLogo.png"
+              className="w-20 object-contain mt-8"
+              src="/BingeBotLogo.png"
               alt="Brand Logo"
             />
           </Link>
 
-          {/* Navigation Menu - Only show if user is logged in and not on login page */}
           {user && !isLoginPage && (
             <nav className="hidden md:flex space-x-8">
               <Link
                 to="/browse"
-                className="text-black hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
+                className="text-purple-600 hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
               >
                 Browse
               </Link>
               <Link
                 to="/movies"
-                className="text-black hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
+                className="text-purple-600 hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
               >
                 Movies
               </Link>
               <Link
                 to="/tv-shows"
-                className="text-black hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
+                className="text-purple-600 hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
               >
                 TV Shows
               </Link>
               <Link
                 to="/my-list"
-                className="text-black hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
+                className="text-purple-600 hover:text-purple-300 transition-colors duration-300 text-sm font-medium"
               >
                 My List
               </Link>
             </nav>
           )}
 
-          {/* User Menu - Only show if user is logged in */}
           {user && (
             <div className="flex items-center space-x-4">
-              {/* Search Icon */}
               <button
                 className="text-white hover:text-purple-300 transition-colors duration-300"
                 aria-label="Search"
@@ -85,8 +82,6 @@ const Header = () => {
                   <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
-
-              {/* User Profile */}
               <div className="relative group">
                 <button
                   className="flex items-center space-x-2 focus:outline-none"
