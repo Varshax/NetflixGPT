@@ -50,7 +50,7 @@ const Login = () => {
       case "auth/invalid-email":
         return "Please enter a valid email address";
       case "auth/operation-not-allowed":
-        return "Email/password accounts are not enabled. Please contact support.";
+        return "Email is not enabled. Please contact support.";
       case "auth/weak-password":
         return "Please enter a stronger password";
       case "auth/user-not-found":
