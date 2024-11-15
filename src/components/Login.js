@@ -63,12 +63,12 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100">
+    <div className="min-h-screen relative bg-black">
       <Header />
       <div className="flex justify-center items-center min-h-screen p-4">
         <div className="w-full max-w-md">
-          <div className="backdrop-blur-lg bg-white/80 p-8 rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl">
-            <h2 className="text-3xl font-bold mb-8 text-gray-800 transition-all duration-300">
+          <div className="backdrop-blur-lg bg-black/80 p-8 rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl">
+            <h2 className="text-3xl font-bold mb-8 text-white transition-all duration-300">
               {newUser ? "Create Account" : "Welcome Back"}
             </h2>
 
@@ -148,11 +148,11 @@ const Login = () => {
               }}
               className="mt-8 text-center cursor-pointer group"
             >
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 {newUser
                   ? "Already have an account? "
                   : "Don't have an account? "}
-                <span className="text-indigo-500 font-medium group-hover:text-indigo-600 border-b-2 border-transparent group-hover:border-indigo-500 transition-all duration-300">
+                <span className="text-indigo-400 font-medium group-hover:text-indigo-500 border-b-2 border-transparent group-hover:border-indigo-500 transition-all duration-300">
                   {newUser ? "Sign In" : "Create One"}
                 </span>
               </p>

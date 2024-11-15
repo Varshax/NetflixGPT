@@ -1,12 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import useNowPlaying from "../hooks/useNowPlaying";
+import MainContainer from "./MainContainer";
+import SubContainer from "./SubContainer";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  const navigate = useNavigate();
-  useNowPlaying();
+  const { mainMovie, isLoading } = useNowPlaying();
 
-  return <></>;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <>
+      {mainMovie && <MainContainer mainMovie={mainMovie} />}
+      <SubContainer />
+    </>
+  );
 };
 
 export default Browse;

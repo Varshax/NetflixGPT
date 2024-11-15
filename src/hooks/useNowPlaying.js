@@ -1,25 +1,34 @@
+import { useEffect, useState } from "react";
+import { API_OPTIONS } from "../utils/Constants";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../utils/Redux-Store/moviesSlice";
 
-const useNowPlaying = async () => {
+const useNowPlaying = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [mainMovie, setMainMovie] = useState(null);
   const dispatch = useDispatch();
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MjQ3YjllYTUwMjdjYjIxNDYyY2FlODI5ZjkzZWEyOCIsIm5iZiI6MTczMDkxOTg5OS41MDMxMDgzLCJzdWIiOiI2NzJiYmNkZTQzM2M4MmVhMjY3ZTlmYWYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.MNE6ch5J1rdeK01mJwSHrGS8dU_Z0oZ8J4lYfWCHnMs",
-    },
-  };
 
-  const nowPlayingMovies = await fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-    options
-  );
-  const json = await nowPlayingMovies.json();
-  dispatch(addNowPlayingMovies(json?.results));
+  useEffect(() => {
+    const fetchNowPlayingMovies = async () => {
+      try {
+        const response = await fetch(
+          "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+          API_OPTIONS
+        );
+        const data = await response.json();
+        setMainMovie(data?.results[0]);
+        setIsLoading(false);
+        dispatch(addNowPlayingMovies(data?.results));
+      } catch (error) {
+        console.error("Failed to fetch now playing movies", error);
+        setIsLoading(false);
+      }
+    };
 
-  return;
+    fetchNowPlayingMovies();
+  }, []);
+
+  return { mainMovie, isLoading };
 };
 
 export default useNowPlaying;
