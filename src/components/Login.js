@@ -122,6 +122,7 @@ const Login = () => {
                   required
                 />
               </div>
+
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-3 px-4 rounded-lg font-medium
