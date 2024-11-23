@@ -12,7 +12,7 @@ const MainContainer = ({ mainMovie }) => {
 
   return (
     <div className="relative pt-8">
-      <div className="absolute left-0 w-full z-0 -top-48">
+      <div className="absolute left-0 w-full z-0 -top-20">
         <VideoFrame mainMovieTrailerKey={mainMovieTrailerKey?.key} />
       </div>
       <div className="relative z-10">

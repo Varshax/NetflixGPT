@@ -16,7 +16,7 @@ const useNowPlaying = () => {
           API_OPTIONS
         );
         const data = await response.json();
-        setMainMovie(data?.results[0]);
+        setMainMovie(data?.results[1]);
         setIsLoading(false);
         dispatch(addNowPlayingMovies(data?.results));
       } catch (error) {
